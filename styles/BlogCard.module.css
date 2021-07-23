@@ -1,0 +1,164 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px 40px;
+  /* overflow: hidden; */
+  overflow: hidden;
+  margin: 0 0 40px;
+  min-height: 220px;
+  border-bottom: 1px solid #e9eef1;
+  background-size: cover;
+}
+
+.large {
+  composes: container;
+  flex: 1 1 100%;
+  flex-direction: row;
+  padding-bottom: 40px;
+  min-height: 280px;
+  border-top: 0;
+}
+
+.medium {
+  composes: container;
+  width: 600px;
+}
+
+.short {
+  composes: container;
+  width: 300px;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  display: block;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+/* .large .image {
+  width: 60%;
+} */
+
+.large .image {
+  position: relative;
+  flex: 1 1 auto;
+  margin-bottom: 0;
+  min-height: 380px;
+}
+
+.sc1 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  vertical-align: baseline;
+}
+
+.large .sc1 {
+  flex: 0 1 361px;
+  justify-content: center;
+}
+
+.content {
+  padding: 0 0 0 40px;
+  position: relative;
+  display: block;
+  color: #15171a;
+}
+
+.header h2 {
+  color: hsla(0, 0%, 100%, 0.85);
+  margin: 0 0 0.4rem;
+  line-height: 1.15rem;
+}
+
+.large .header h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+}
+
+.excerpt {
+  color: #92a3ab;
+  max-width: 20rem;
+}
+
+.excerpt p {
+  margin-bottom: 1.5em;
+  font-size: 1rem;
+  line-height: 1.5em;
+}
+
+.p1 {
+  max-width: 380px;
+  color: #92a3ab;
+  font-size: 15px;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+.perfil {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 35px;
+}
+
+.date {
+  margin: 5px 20px;
+}
+
+.img2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.date h3 {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--verydarkgrayishblue);
+  margin: 0;
+}
+
+.p2 {
+  font-size: 15px;
+  color: var(--desaturateddarkblue);
+  margin: 0;
+}
+
+.share {
+  position: absolute;
+  margin: -70px 430px;
+  color: var(--verydarkgrayishblue);
+  background-color: var(--lightgrayishblue);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    height: 400px;
+  }
+  .content h2 {
+    color: var(--verydarkgrayishblue);
+    font-size: 16px;
+    font-weight: 900;
+    margin: 30px 35px;
+    width: 80%;
+  }
+  .image {
+    width: 85vw;
+    height: 200px;
+  }
+}
