@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
-import BlogCard from "../components/BlogCard";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -13,7 +12,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <a href="/blog">blog</a>
+        <Link href="/blog">
+          <a>blog</a>
+        </Link>
       </main>
     </div>
   );
