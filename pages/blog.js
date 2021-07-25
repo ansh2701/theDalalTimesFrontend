@@ -4,11 +4,10 @@ import styles from "../styles/Blog.module.css";
 
 const blog = ({ data }) => {
   const large = [0, 9];
-  const short = [1, 2, 3, 6, 7, 8];
-  const medium = [4, 5];
+  const small = [1, 2, 3, 6, 7, 8];
   const checkIndex = (index) => {
     if (large.includes(index)) return "large";
-    else if (short.includes(index)) return "short";
+    else if (small.includes(index)) return "small";
     else return "medium";
   };
   return (

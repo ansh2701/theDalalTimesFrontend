@@ -10,7 +10,7 @@ const BlogCard = ({ article, blogClass }) => {
           height={article.image.formats.medium.height}
           width={article.image.formats.medium.height}
           className={styles.image}
-          alt={article.image.name}
+          alt=""
         />
       </div>
       <section className={styles.sc}>

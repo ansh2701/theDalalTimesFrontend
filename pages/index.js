@@ -15,6 +15,9 @@ export default function Home() {
         <Link href="/blog">
           <a>blog</a>
         </Link>
+        <Link href="/news">
+          <a>news</a>
+        </Link>
       </main>
     </div>
   );
