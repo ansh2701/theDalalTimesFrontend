@@ -42,7 +42,7 @@ const PostsData = [
 
 // // Start App
 
-const CardCarousel = () => {
+const CardCarousel = ({ posts }) => {
   return (
     <div>
       <header className={styles.appHeader}></header>
@@ -55,7 +55,7 @@ const CardCarousel = () => {
       </section>
 
       <div className={styles.appCardList} id="appCardList">
-        {PostsData.map((post, index) => (
+        {posts.map((post, index) => (
           <Card key={index} index={index} details={post} />
         ))}
       </div>
@@ -106,8 +106,8 @@ const CardBody = ({ text, title }) => {
 const Card = ({ details }) => {
   return (
     <article className={styles.card}>
-      <CardHeader category={details.category} image={details.image} />
-      <CardBody title={details.title} text={details.text} />
+      <CardHeader category={details.category} image={details.urlToImage} />
+      <CardBody title={details.title} text={details.description} />
     </article>
   );
 };
