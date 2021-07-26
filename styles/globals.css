@@ -17,8 +17,15 @@ a {
 }
 
 :root {
-  --verydarkgrayishblue: hsl(217, 15%, 17%);
-  --desaturateddarkblue: hsl(210, 6%, 13%);
-  --grayishblue: hsl(211, 22%, 28%);
-  --lightgrayishblue: hsl(209, 15%, 44%);
+  --clr-gray-light: #d7dfe2;
+  --clr-gray-med: #616b74;
+  --clr-gray-dark: #414b56;
+  --clr-link: #4d97b2;
+  --clr-popular: #ef257a;
+  --clr-technology: #651fff;
+  --clr-psychology: #e85808;
+  --primary: #23adad;
+  --greyLight: #23adade1;
+  --greyLight-2: #cbe0dd;
+  --greyDark: #2d4848;
 }

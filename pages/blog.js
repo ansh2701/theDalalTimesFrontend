@@ -1,4 +1,6 @@
 import BlogCard from "../components/BlogCard";
+import Card from "../components/Card";
+import Layout from "../components/Layout";
 import { fetchAPI } from "../lib/api";
 import styles from "../styles/Blog.module.css";
 
@@ -11,7 +13,7 @@ const blog = ({ data }) => {
     else return "medium";
   };
   return (
-    <>
+    <Layout>
       <div className={styles.hero}>
         <h1>The Dalal Times</h1>
       </div>
@@ -19,7 +21,7 @@ const blog = ({ data }) => {
         <div className={styles.inner}>
           <div className={styles.postFeed}>
             {data.map((article, index) => (
-              <BlogCard
+              <Card
                 article={article}
                 key={index}
                 blogClass={checkIndex(index)}
@@ -28,7 +30,7 @@ const blog = ({ data }) => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

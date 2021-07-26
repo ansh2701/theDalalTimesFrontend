@@ -1,46 +1,5 @@
+import Link from "next/link";
 import styles from "../styles/NewsCard.module.css";
-
-// //Temporarily store data here
-const PostsData = [
-  {
-    category: "News",
-    title: "CNN Acquire BEME",
-    text: "CNN purchased Casey Neistat's Beme app for $25million.",
-    image: "https://source.unsplash.com/user/erondu/600x400",
-  },
-  {
-    category: "Travel",
-    title: "Nomad Lifestyle",
-    text: "Learn our tips and tricks on living a nomadic lifestyle",
-    image: "https://source.unsplash.com/user/_vickyreyes/600x400",
-  },
-  {
-    category: "Development",
-    title: "React and the WP-API",
-    text: "The first ever decoupled starter theme for React & the WP-API",
-    image: "https://source.unsplash.com/user/ilyapavlov/600x400",
-  },
-  {
-    category: "News",
-    title: "CNN Acquire BEME",
-    text: "CNN purchased Casey Neistat's Beme app for $25million.",
-    image: "https://source.unsplash.com/user/erondu/600x400",
-  },
-  {
-    category: "Travel",
-    title: "Nomad Lifestyle",
-    text: "Learn our tips and tricks on living a nomadic lifestyle",
-    image: "https://source.unsplash.com/user/_vickyreyes/600x400",
-  },
-  {
-    category: "Development",
-    title: "React and the WP-API",
-    text: "The first ever decoupled starter theme for React & the WP-API",
-    image: "https://source.unsplash.com/user/ilyapavlov/600x400",
-  },
-];
-
-// // Start App
 
 const CardCarousel = ({ posts }) => {
   return (
@@ -63,18 +22,6 @@ const CardCarousel = ({ posts }) => {
   );
 };
 
-// const Title = () => {
-//   return (
-
-//   );
-// };
-
-// const Button = () => {
-//   return (
-
-//   );
-// };
-
 const CardHeader = ({ image, category }) => {
   const style = {
     backgroundImage: "url(" + image + ")",
@@ -86,14 +33,15 @@ const CardHeader = ({ image, category }) => {
   );
 };
 
-const CardBody = ({ text, title }) => {
+const CardBody = ({ details }) => {
+  let currentDate = new Date(details.publishedAt);
   return (
     <div className={styles.cardBody}>
-      <p className={styles.date}>March 20 2015</p>
+      <p className={styles.date}>{currentDate.toDateString()}</p>
 
-      <h2>{title}</h2>
+      <h2>{details.title}</h2>
 
-      <p className={styles.bodyContent}>{text}</p>
+      <p className={styles.bodyContent}>{details.description}</p>
 
       <button className={styles.buttonPrimary}>
         {/* <i className={styles.fa fa-chevron-right}></i> Find out more */}
@@ -105,10 +53,14 @@ const CardBody = ({ text, title }) => {
 
 const Card = ({ details }) => {
   return (
-    <article className={styles.card}>
-      <CardHeader category={details.category} image={details.urlToImage} />
-      <CardBody title={details.title} text={details.description} />
-    </article>
+    <Link href={details.url}>
+      <a>
+        <article className={styles.card}>
+          <CardHeader category={details.category} image={details.urlToImage} />
+          <CardBody details={details} />
+        </article>
+      </a>
+    </Link>
   );
 };
 

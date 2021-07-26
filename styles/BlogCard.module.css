@@ -2,20 +2,17 @@
   display: flex;
   flex-direction: row;
   padding: 0 20px 40px;
-  /* overflow: hidden; */
   overflow: hidden;
   margin: 0 0 40px;
-  min-height: 220px;
   border-bottom: 1px solid #e9eef1;
-  background-size: cover;
 }
 
 .large {
   composes: container;
   flex: 1 1 100%;
-  flex-direction: row;
   padding-bottom: 40px;
-  min-height: 280px;
+  height: 400px;
+  width: 800px;
   border-top: 0;
 }
 
@@ -50,31 +47,34 @@
 
 .large .image {
   position: relative;
-  flex: 1 1 auto;
   margin-bottom: 0;
-  max-height: 380px;
+  /* max-height: 380px; */
   width: 60%;
   justify-self: flex-start;
 }
 
 .medium .image {
   position: relative;
-  flex: 1 1 auto;
   margin-bottom: 0;
   max-height: 380px;
   width: 60%;
   justify-self: flex-start;
 }
 
-.sc1 {
+/* .sc1 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   vertical-align: baseline;
   justify-content: center;
-}
+} */
 
 .large .sc1 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  vertical-align: baseline;
+  justify-content: center;
   flex: 0 1 361px;
   justify-content: center;
 }
@@ -149,8 +149,8 @@
 }
 
 .share {
-  position: absolute;
-  margin: -70px 430px;
+  position: relative;
+  /* margin: -70px 430px; */
   color: var(--verydarkgrayishblue);
   background-color: var(--lightgrayishblue);
   width: 34px;
@@ -168,6 +168,7 @@
     flex-direction: column;
     width: 85vw;
     height: 400px;
+    margin: 0 0 10px;
   }
   .large,
   .small,

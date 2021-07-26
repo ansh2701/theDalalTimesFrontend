@@ -1,5 +1,7 @@
-import styles from "../styles/BlogCard.module.css";
+import { FaShare } from "react-icons/fa";
 import Image from "next/image";
+import styles from "../styles/BlogCard.module.css";
+
 const BlogCard = ({ article, blogClass }) => {
   return (
     <article className={styles[blogClass]}>
@@ -36,10 +38,10 @@ const BlogCard = ({ article, blogClass }) => {
             <h3>{article.author.name}</h3>
             <p className={styles.p2}>28 Jun 2020</p>
           </div>
+          <div className={styles.share}>
+            <FaShare />
+          </div>
         </div>
-        {/* <div className={styles.share}>
-        <i className={styles.fas fa-share}></i>
-      </div> */}
       </section>
     </article>
   );
