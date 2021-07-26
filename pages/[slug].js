@@ -5,6 +5,7 @@ import { fetchAPI } from "../lib/api";
 import Image from "../components/image";
 // import Seo from "../../components/seo";
 import { getStrapiMedia } from "../lib/media";
+import styles from "../styles/BlogPost.module.css";
 
 const Article = ({ article }) => {
   const imageUrl = getStrapiMedia(article.image);
@@ -17,17 +18,34 @@ const Article = ({ article }) => {
   //   };
 
   return (
-    <div class="container">
+    <div className={styles.container}>
       <header>...</header>
-      <main class="container__main">
+      <main className={styles.container__main}>
         {/* <!-- Left sidebar --> */}
-        <aside class="container__left">...</aside>
+        <aside className={styles.container__left}>...</aside>
 
         {/* <!-- Main content --> */}
-        <article class="container__middle">...</article>
+        <article className={styles.container__middle}>
+          {/* <ReactMarkdown source={article.content} escapeHtml={false} />
+          <div>
+            {article.author.picture && (
+              <Image
+                image={article.author.picture}
+                style={{
+                  position: "static",
+                  borderRadius: "50%",
+                  height: 30,
+                }}
+              />
+            )}
+          </div>
+          <p className="uk-text-meta uk-margin-remove-top">
+            <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+          </p> */}
+        </article>
 
         {/* <!-- Right sidebar --> */}
-        <nav class="container__right">...</nav>
+        <nav className={styles.container__right}>...</nav>
       </main>
       <footer>...</footer>
     </div>

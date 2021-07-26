@@ -5,7 +5,6 @@ import styles from "../styles/BlogCard.module.css";
 const BlogCard = ({ article, blogClass }) => {
   return (
     <article className={styles[blogClass]}>
-      {/* <img src={getStrapiMedia(article.image)}  /> */}
       <div className={styles.image}>
         <Image
           src={article.image.formats.medium.url}
@@ -28,8 +27,8 @@ const BlogCard = ({ article, blogClass }) => {
           <div className={styles.img2}>
             <Image
               src={article.author.picture.formats.small.url}
-              height={article.author.picture.formats.small.height}
-              width={article.author.picture.formats.small.width}
+              height={50}
+              width={50}
               className={styles.img2}
               alt=""
             />
