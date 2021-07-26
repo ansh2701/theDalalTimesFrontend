@@ -1,5 +1,5 @@
-import CardCarousel from "../../components/CardCarousel";
-import Layout from "../../components/Layout";
+import CardCarousel from "../components/CardCarousel";
+import Layout from "../components/Layout";
 
 const news = ({ posts }) => {
   return (
