@@ -28,15 +28,14 @@ const tweet = ({ tweet }) => {
 export default tweet;
 
 export async function getStaticProps() {
-  const tweet = await fetchAPI("/tweets?_start=0&_limit=9");
-
-  if (!tweet) {
-    return {
-      notFound: true,
-    };
-  }
+  // Run API calls in parallel
+  const [tweet, homepage] = await Promise.all([
+    fetchAPI("/tweets?_start=0&_limit=9"),
+    fetchAPI("/twitter"),
+  ]);
 
   return {
-    props: { tweet }, // will be passed to the page component as props
+    props: { tweet, homepage },
+    revalidate: 1,
   };
 }
