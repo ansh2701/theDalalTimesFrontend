@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/CssCard.module.css";
 
 const Card = ({ article, blogClass }) => {
+  let currentDate = new Date(article.updated_at);
   return (
     <Link href={`/${article.slug}`}>
       <a>
@@ -27,8 +28,11 @@ const Card = ({ article, blogClass }) => {
                 />
               </div>
               <div className={styles.cardProfileInfo}>
-                <h3 className={styles.profileName}>Maya Eleanor Peña</h3>
-                <p className={styles.profileDate}>25 June 2021 . 5 min read</p>
+                <h3 className={styles.profileName}>{article.author.name}</h3>
+                <p className={styles.profileDate}>
+                  {currentDate.toDateString()}
+                </p>
+                {/* <p className={styles.profileDate}>25 June 2021</p> */}
               </div>
             </div>
           </div>

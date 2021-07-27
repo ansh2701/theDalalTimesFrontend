@@ -22,13 +22,6 @@
   padding: 0 5vw;
 }
 
-.inner {
-  margin: 0 auto;
-  max-width: 1040px;
-  width: 100%;
-  overflow-x: hidden;
-}
-
 .postFeed {
   display: flex;
   flex-wrap: wrap;
@@ -41,14 +34,8 @@
     display: flex;
     flex-wrap: wrap;
     /* margin: 0 -20px;
-      padding: 40px 0 5vw; */
+        padding: 40px 0 5vw; */
     justify-content: center;
     align-items: center;
-  }
-  .hero h1 {
-    text-align: center;
-    font-size: 3rem;
-    color: #fff;
-    margin: 0;
   }
 }

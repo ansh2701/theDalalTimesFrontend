@@ -1,11 +1,20 @@
-import CardCarousel from "../components/CardCarousel";
 import Layout from "../components/Layout";
+import NewsCard from "../components/NewsCard";
+import styles from "../styles/News.module.css";
 
 const news = ({ posts }) => {
   return (
     <Layout>
-      <div style={{ backgroundColor: "#341cac" }}>
-        <CardCarousel posts={posts.articles} />
+      <div className={styles.hero}>
+        <h1>News</h1>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.postFeed}>
+          {/* <CardCarousel posts={posts.articles} /> */}
+          {posts.articles.map((post, index) => (
+            <NewsCard post={post} key={index} />
+          ))}
+        </div>
       </div>
     </Layout>
   );

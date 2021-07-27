@@ -36,7 +36,7 @@ const blog = ({ data }) => {
 export default blog;
 
 export async function getStaticProps() {
-  const data = await fetchAPI("/articles?_start=1&_limit=10");
+  const data = await fetchAPI("/articles?_start=0&_limit=10");
 
   if (!data) {
     return {

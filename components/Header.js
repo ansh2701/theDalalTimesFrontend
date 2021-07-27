@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaTimes, FaBars, FaTypo3 } from "react-icons/fa";
+import { FaTimes, FaBars } from "react-icons/fa";
 import styles from "../styles/Header.module.css";
 
 function Header() {
@@ -29,8 +29,7 @@ function Header() {
         <div className={styles.container}>
           <Link href="/">
             <a className={styles.logo} onClick={closeMobileMenu}>
-              Dalal Times
-              <FaTypo3 />
+              The Dalal Times
             </a>
           </Link>
 
