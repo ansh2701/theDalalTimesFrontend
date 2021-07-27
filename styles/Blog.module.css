@@ -1,6 +1,6 @@
 .hero {
   width: 100%;
-
+  font-family: "Roboto Mono", monospace;
   margin: 0;
   padding: 1vw 0vw 3vw;
   align-items: center;

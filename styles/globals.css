@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap");
+
 html,
 body {
   padding: 0;
@@ -14,18 +16,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-:root {
-  --clr-gray-light: #d7dfe2;
-  --clr-gray-med: #616b74;
-  --clr-gray-dark: #414b56;
-  --clr-link: #4d97b2;
-  --clr-popular: #ef257a;
-  --clr-technology: #651fff;
-  --clr-psychology: #e85808;
-  --primary: #23adad;
-  --greyLight: #23adade1;
-  --greyLight-2: #cbe0dd;
-  --greyDark: #2d4848;
 }

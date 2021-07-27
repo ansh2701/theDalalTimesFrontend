@@ -1,20 +1,22 @@
-import ReactMarkdown from "react-markdown";
+import Markdown from "markdown-to-jsx";
 import Moment from "react-moment";
 import { fetchAPI } from "../lib/api";
 import Layout from "../components/Layout";
 import Image from "next/image";
+import Seo from "../../components/seo";
 import styles from "../styles/BlogPost.module.css";
 
 const Article = ({ article }) => {
-  //   const seo = {
-  //     metaTitle: article.title,
-  //     metaDescription: article.description,
-  //     shareImage: article.image,
-  //     article: true,
-  //   };
-  let currentDate = new Date(article.updated_at);
+  const seo = {
+    metaTitle: article.title,
+    metaDescription: article.description,
+    shareImage: article.image,
+    article: true,
+  };
+
   return (
     <Layout>
+      <Seo seo={seo} />
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.header__content}>
@@ -33,7 +35,7 @@ const Article = ({ article }) => {
               <div className={styles.cardProfileInfo}>
                 <h3 className={styles.profileName}>{article.author.name}</h3>
                 <p className={styles.profileDate}>
-                  {currentDate.toDateString()}
+                  <Moment format="MMM Do YYYY">{article.published_at}</Moment>
                 </p>
               </div>
             </div>
@@ -47,39 +49,17 @@ const Article = ({ article }) => {
         </div>
         <main className={styles.container__main}>
           {/* <!-- Left sidebar --> */}
-          <aside className={styles.container__left}>
-            {/* <h1>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Exercitationem minima enim aliquid sequi ipsam quas. At optio
-              quia, a beatae tempore dignissimos officia ipsum veritatis
-              architecto, sunt temporibus corrupti tempora?
-            </h1> */}
-          </aside>
+          <aside className={styles.container__left}></aside>
 
           {/* <!-- Main content --> */}
           <article className={styles.container__middle}>
-            <ReactMarkdown>{article.content}</ReactMarkdown>
-            {/* <div>
-            {article.author.picture && (
-              <Image
-                image={article.author.picture}
-                style={{
-                  position: "static",
-                  borderRadius: "50%",
-                  height: 30,
-                }}
-              />
-            )}
-          </div>
-          <p className="uk-text-meta uk-margin-remove-top">
-            <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-          </p> */}
+            <Markdown>{article.content}</Markdown>
           </article>
 
           {/* <!-- Right sidebar --> */}
-          <nav className={styles.container__right}>...</nav>
+          <nav className={styles.container__right}></nav>
         </main>
-        <footer>...</footer>
+        <footer></footer>
       </div>
     </Layout>
   );

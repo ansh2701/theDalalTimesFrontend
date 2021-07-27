@@ -1,9 +1,10 @@
 import Card from "../components/Card";
 import Layout from "../components/Layout";
 import { fetchAPI } from "../lib/api";
+import Seo from "../components/seo";
 import styles from "../styles/Blog.module.css";
 
-const blog = ({ data }) => {
+const blog = ({ data, homepage }) => {
   const large = [0, 9];
   const small = [1, 2, 3, 6, 7, 8];
   const checkIndex = (index) => {
@@ -13,8 +14,9 @@ const blog = ({ data }) => {
   };
   return (
     <Layout>
+      <Seo seo={homepage.seo} />
       <div className={styles.hero}>
-        <h1>The Dalal Times</h1>
+        <h1>{homepage.hero.title}</h1>
       </div>
       <div className={styles.container}>
         <div className={styles.inner}>
@@ -36,15 +38,14 @@ const blog = ({ data }) => {
 export default blog;
 
 export async function getStaticProps() {
-  const data = await fetchAPI("/articles?_start=0&_limit=10");
-
-  if (!data) {
-    return {
-      notFound: true,
-    };
-  }
+  // Run API calls in parallel
+  const [data, homepage] = await Promise.all([
+    fetchAPI("/articles?_start=0&_limit=10"),
+    fetchAPI("/homepage"),
+  ]);
 
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { data, homepage },
+    revalidate: 1,
   };
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaTimes, FaBars } from "react-icons/fa";
+import Image from "next/image";
 import styles from "../styles/Header.module.css";
 
 function Header() {
@@ -29,7 +30,7 @@ function Header() {
         <div className={styles.container}>
           <Link href="/">
             <a className={styles.logo} onClick={closeMobileMenu}>
-              The Dalal Times
+              <Image src="/logo.jpg" height={60} width={60} />
             </a>
           </Link>
 
@@ -42,7 +43,7 @@ function Header() {
             <li className={styles.navitem}>
               <Link href="/">
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
-                  Home
+                  Blog
                 </a>
               </Link>
             </li>

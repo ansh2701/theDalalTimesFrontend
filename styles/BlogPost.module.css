@@ -100,3 +100,7 @@
 .container__right {
   width: 20%;
 }
+
+.container__middle iframe {
+  width: 100%;
+}

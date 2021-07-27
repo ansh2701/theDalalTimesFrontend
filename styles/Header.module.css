@@ -73,16 +73,16 @@
     align-items: center;
     justify-self: center;
   }
-
+  /* 
   .logo {
     justify-self: start;
-    margin-left: -20px;
+    margin-left: 20px;
     cursor: pointer;
     text-decoration: none;
     font-size: 2rem;
     display: flex;
     align-items: center;
-  }
+  } */
 
   .navmenu {
     display: flex;
@@ -122,9 +122,8 @@
 
   .logo {
     position: absolute;
-    top: 0;
+
     left: 0;
-    transform: translate(25%, 50%);
   }
 
   .menuicon {
