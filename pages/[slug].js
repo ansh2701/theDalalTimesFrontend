@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import { fetchAPI } from "../lib/api";
 import Layout from "../components/Layout";
 import Image from "next/image";
-import Seo from "../../components/seo";
+import Seo from "../components/seo";
 import styles from "../styles/BlogPost.module.css";
 
 const Article = ({ article }) => {
