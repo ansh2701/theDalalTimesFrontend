@@ -10,8 +10,8 @@ const Footer = () => {
 
         <h2>About Us</h2>
         <h5>
-          India's Largest Investor Community | A Community wherein members
-          interact and grow their wealth
+          India`&apos;`s Largest Investor Community | A Community wherein
+          members interact and grow their wealth
         </h5>
       </div>
 
