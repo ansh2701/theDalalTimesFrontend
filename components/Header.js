@@ -30,7 +30,7 @@ function Header() {
         <div className={styles.container}>
           <Link href="/">
             <a className={styles.logo} onClick={closeMobileMenu}>
-              <Image src="/logo.jpg" height={60} width={60} />
+              <Image src="/logo.jpg" height={60} width={60} alt="Dalal Times" />
             </a>
           </Link>
 
