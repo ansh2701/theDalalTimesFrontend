@@ -37,15 +37,15 @@ const blog = ({ data, homepage }) => {
 
 export default blog;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Run API calls in parallel
-  const [data, homepage] = await Promise.all([
-    fetchAPI("/articles?_start=0&_limit=10&_sort=updated_at:DESC"),
-    fetchAPI("/homepage"),
-  ]);
+  const data = await fetchAPI(
+    "/articles?_start=0&_limit=10&_sort=updated_at:DESC"
+  );
+
+  const homepage = await fetchAPI("/homepage");
 
   return {
     props: { data, homepage },
-    revalidate: 1,
   };
 }

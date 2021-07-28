@@ -16,27 +16,29 @@ const Card = ({ article, blogClass }) => {
           <div className={styles.card__content}>
             <h2 className={styles.title}>{article.title}</h2>
             <p className={styles.description}>{article.description}</p>
-
-            <div className={styles.cardProfile}>
-              <div className={styles.img2}>
-                <Image
-                  src={article.author.picture.formats.small.url}
-                  height={50}
-                  width={50}
-                  className={styles.img2}
-                  alt=""
-                />
+            {article.author && (
+              <div className={styles.cardProfile}>
+                <div className={styles.img2}>
+                  <Image
+                    src={article.author.picture.formats.small.url}
+                    height={50}
+                    width={50}
+                    className={styles.img2}
+                    alt=""
+                  />
+                </div>
+                <div className={styles.cardProfileInfo}>
+                  <h3 className={styles.profileName}>{article.author.name}</h3>
+                  <p className={styles.profileDate}>
+                    {currentDate.toDateString()}
+                  </p>
+                  {/* <p className={styles.profileDate}>25 June 2021</p> */}
+                </div>
               </div>
-              <div className={styles.cardProfileInfo}>
-                <h3 className={styles.profileName}>{article.author.name}</h3>
-                <p className={styles.profileDate}>
-                  {currentDate.toDateString()}
-                </p>
-                {/* <p className={styles.profileDate}>25 June 2021</p> */}
-              </div>
-            </div>
+            )}
           </div>
         </div>
+
         {/* </div> */}
       </a>
     </Link>
