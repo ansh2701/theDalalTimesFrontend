@@ -1,10 +1,12 @@
 import parse from "html-react-parser";
 import { fetchAPI } from "../lib/api";
+import Seo from "../components/seo";
 import Layout from "../components/Layout";
 
-const tweet = ({ tweet }) => {
+const tweet = ({ tweet, homepage }) => {
   return (
     <Layout>
+      <Seo seo={homepage.seo} />
       <div className="container">
         {tweet.map((twe, index) => (
           <div key={index}>{parse(twe.tweet)}</div>

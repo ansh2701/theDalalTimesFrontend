@@ -1,8 +1,10 @@
 import Layout from "../components/Layout";
 import NewsCard from "../components/NewsCard";
+import Seo from "../components/seo";
+import { fetchAPI } from "../lib/api";
 import styles from "../styles/News.module.css";
 
-const news = ({ posts }) => {
+const news = ({ posts, homepage }) => {
   return (
     <Layout>
       <Seo seo={homepage.seo} />
@@ -19,17 +21,20 @@ const news = ({ posts }) => {
 
 export default news;
 
-export async function getStaticProps() {
-  // Run API calls in parallel
-  const [posts, homepage] = await Promise.all([
-    fetchAPI(
-      `https://newsapi.org/v2/top-headlines?category=business&pageSize=10&language=en&country=in&apiKey=2c69fdafd7774c9d9fbe95aeaffd4321`
-    ),
-    fetchAPI("/newspage"),
-  ]);
+export async function getServerSideProps() {
+  const res = await fetch(
+    `https://newsapi.org/v2/top-headlines?category=business&pageSize=20&language=en&apiKey=2c69fdafd7774c9d9fbe95aeaffd4321`
+  );
+  const posts = await res.json();
+  const homepage = await fetchAPI("/newspage");
+
+  if (!posts) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: { posts, homepage },
-    revalidate: 1,
+    props: { posts, homepage }, // will be passed to the page component as props
   };
 }
