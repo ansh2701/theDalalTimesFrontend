@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 export default function Custom404() {
   return (
     <Layout>
-      <h1 style={{ margin: auto }}>404 - Page Not Found</h1>
+      <h1 style={{ margin: "auto" }}>404 - Page Not Found</h1>
     </Layout>
   );
 }

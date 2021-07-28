@@ -103,6 +103,16 @@
   width: 100%;
 }
 
+.shareContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 37px;
+}
+
+.shareBox {
+  margin-left: 20px;
+}
+
 @media screen and (max-width: 500px) {
   .header__content h1 {
     font-size: 32px;

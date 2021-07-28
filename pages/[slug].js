@@ -7,6 +7,14 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 import Seo from "../components/seo";
 import styles from "../styles/BlogPost.module.css";
+import Link from "next/link";
+import {
+  FaDiscord,
+  FaFacebook,
+  FaFacebookF,
+  FaTelegram,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Article = ({ article }) => {
   const seo = {
@@ -68,6 +76,54 @@ const Article = ({ article }) => {
           <nav className={styles.container__right}></nav>
         </main>
         <footer>
+          <div className={styles.shareContainer}>
+            <div>
+              <Link
+                href={`http://www.facebook.com/sharer.php?u=https://thedalaltimes.com/${article.slug}`}
+                passHref
+              >
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.shareBox}
+                >
+                  <FaFacebook size={30} />
+                </a>
+              </Link>
+              <Link
+                href={`http://twitter.com/share?text=${article.title}&url=https://thedalaltimes.com/${article.slug}&hashtags=blog,thedalaltimes,trading`}
+                passHref
+              >
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.shareBox}
+                >
+                  <FaTwitter size={30} />
+                </a>
+              </Link>
+              <Link href="/">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.shareBox}
+                >
+                  <FaDiscord size={30} />
+                </a>
+              </Link>
+              <Link
+                href={`https://telegram.me/share/url?url=https://thedalaltimes.com/${article.slug}&text=${article.title}`}
+              >
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.shareBox}
+                >
+                  <FaTelegram size={30} />
+                </a>
+              </Link>
+            </div>
+          </div>
           <div id="emojicom-widget-inline"></div>
         </footer>
 
