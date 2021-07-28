@@ -8,13 +8,7 @@ import Image from "next/image";
 import Seo from "../components/seo";
 import styles from "../styles/BlogPost.module.css";
 import Link from "next/link";
-import {
-  FaDiscord,
-  FaFacebook,
-  FaFacebookF,
-  FaTelegram,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
 
 const Article = ({ article }) => {
   const seo = {
@@ -102,17 +96,21 @@ const Article = ({ article }) => {
                   <FaTwitter size={30} />
                 </a>
               </Link>
-              <Link href="/">
+              <Link
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=https://thedalaltimes.com/${article.slug}`}
+                passHref
+              >
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.shareBox}
                 >
-                  <FaDiscord size={30} />
+                  <FaLinkedin size={30} />
                 </a>
               </Link>
               <Link
                 href={`https://telegram.me/share/url?url=https://thedalaltimes.com/${article.slug}&text=${article.title}`}
+                passHref
               >
                 <a
                   target="_blank"
@@ -148,7 +146,7 @@ export async function getStaticProps({ params }) {
   //   const categories = await fetchAPI("/categories");
 
   return {
-    props: { article: articles[0] },
+    props: { article: JSON.parse(JSON.stringify(articles[0])) },
     revalidate: 1,
   };
 }

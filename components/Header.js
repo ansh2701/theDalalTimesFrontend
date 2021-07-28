@@ -30,7 +30,12 @@ function Header() {
         <div className={styles.container}>
           <Link href="/">
             <a className={styles.logo} onClick={closeMobileMenu}>
-              <Image src="/logo.jpg" height={60} width={60} alt="Dalal Times" />
+              <Image
+                src="https://res.cloudinary.com/mrxox/image/upload/v1627475987/logo_784685d0ba.png"
+                height={60}
+                width={60}
+                alt="Dalal Times"
+              />
             </a>
           </Link>
 
@@ -62,19 +67,19 @@ function Header() {
               </Link>
             </li>
 
-            <li className={styles.navitem}>
+            {/* <li className={styles.navitem}>
               <Link href="/signup">
                 <a className={styles.navlinksmobile} onClick={closeMobileMenu}>
                   Contact Us
                 </a>
               </Link>
-            </li>
+            </li> */}
           </ul>
-          {button && (
+          {/* {button && (
             <Link href="/">
               <a className="btn one">Contact Us</a>
             </Link>
-          )}
+          )} */}
         </div>
       </nav>
     </>

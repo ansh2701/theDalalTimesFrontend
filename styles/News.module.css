@@ -25,6 +25,7 @@
 .postFeed {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   margin: 0 -20px;
   padding: 40px 0 5vw;
   justify-content: center;

@@ -1,3 +1,4 @@
+import Grid from "../components/Grid";
 import Layout from "../components/Layout";
 import NewsCard from "../components/NewsCard";
 import Seo from "../components/seo";
@@ -5,14 +6,22 @@ import { fetchAPI } from "../lib/api";
 import styles from "../styles/News.module.css";
 
 const news = ({ posts, homepage }) => {
+  let item = [];
+  const box = (post, index) => {
+    item.push(post);
+    if (item.length === 5) {
+      let temp = item;
+      item = [];
+      return <Grid postArr={temp} key={index} />;
+    }
+  };
+
   return (
     <Layout>
       <Seo seo={homepage.seo} />
       <div className={styles.container}>
         <div className={styles.postFeed}>
-          {posts.articles.map((post, index) => (
-            <NewsCard post={post} key={index} />
-          ))}
+          {posts.articles.map((post, index) => box(post, index))}
         </div>
       </div>
     </Layout>
