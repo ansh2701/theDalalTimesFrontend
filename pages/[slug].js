@@ -79,15 +79,11 @@ const Article = ({ article }) => {
 };
 
 export async function getStaticPaths() {
-  const articles = await fetchAPI("/articles");
+  // const articles = await fetchAPI("/articles");
 
   return {
-    paths: articles.map((article) => ({
-      params: {
-        slug: article.slug,
-      },
-    })),
-    fallback: false,
+    paths: [], //indicates that no page needs be created at build time
+    fallback: "blocking", //indicates the type of fallback
   };
 }
 
