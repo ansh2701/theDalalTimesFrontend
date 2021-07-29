@@ -14,6 +14,10 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <Head>
         <link rel="shortcut icon" href={global.favicon.url} />
+        <meta
+          name="google-site-verification"
+          content="TLRuLpNzr_kXf2PreLdiwtiuV07H7KsFK-CyU6FzuGw"
+        />
       </Head>
 
       <GlobalContext.Provider value={global}>
