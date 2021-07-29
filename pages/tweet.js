@@ -35,7 +35,11 @@ export async function getServerSideProps() {
     fetchAPI("/tweets?_start=0&_limit=9"),
     fetchAPI("/twitter"),
   ]);
-
+  if (!tweet) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: { tweet, homepage },
   };

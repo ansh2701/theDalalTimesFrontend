@@ -5,8 +5,8 @@ import Seo from "../components/seo";
 import styles from "../styles/Blog.module.css";
 
 const blog = ({ data, homepage }) => {
-  const large = [0, 9];
-  const small = [1, 2, 3, 6, 7, 8];
+  const large = [0, 9, 15, 19, 20];
+  const small = [1, 2, 3, 6, 7, 8, 10, 11, 12, 16, 17, 18];
   const checkIndex = (index) => {
     if (large.includes(index)) return "large";
     else if (small.includes(index)) return "small";
@@ -40,11 +40,15 @@ export default blog;
 export async function getServerSideProps() {
   // Run API calls in parallel
   const data = await fetchAPI(
-    "/articles?_start=0&_limit=10&_sort=updated_at:DESC"
+    "/articles?_start=0&_limit=20&_sort=updated_at:DESC"
   );
 
   const homepage = await fetchAPI("/homepage");
-
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: { data, homepage },
   };

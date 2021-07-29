@@ -5,12 +5,16 @@ import styles from "../styles/CssCard.module.css";
 const Card = ({ article, blogClass }) => {
   let currentDate = new Date(article.updated_at);
   return (
-    <Link href={`/${article.slug}`}>
+    <Link href={`/blog/${article.slug}`}>
       <a>
         <div className={styles[blogClass]}>
           <div className={styles.card__cover}>
             <div className={styles.image}>
-              <Image src={article.image.url} layout="fill" alt="" />
+              <Image
+                src={article.image.url}
+                layout="fill"
+                alt={article.image.name}
+              />
             </div>
           </div>
           <div className={styles.card__content}>

@@ -1,6 +1,5 @@
 import Grid from "../components/Grid";
 import Layout from "../components/Layout";
-import NewsCard from "../components/NewsCard";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 import styles from "../styles/News.module.css";
@@ -18,7 +17,7 @@ const news = ({ posts, homepage }) => {
 
   return (
     <Layout>
-      <Seo seo={homepage.seo} />
+      <Seo seo={homepage.Seo} />
       <div className={styles.container}>
         <div className={styles.postFeed}>
           {posts.articles.map((post, index) => box(post, index))}
@@ -32,7 +31,7 @@ export default news;
 
 export async function getServerSideProps() {
   const res = await fetch(
-    `https://newsapi.org/v2/top-headlines?category=business&pageSize=20&language=en&apiKey=2c69fdafd7774c9d9fbe95aeaffd4321`
+    `https://newsapi.org/v2/top-headlines?category=business&pageSize=20&language=en&country=in&apiKey=2c69fdafd7774c9d9fbe95aeaffd4321`
   );
   const posts = await res.json();
   const homepage = await fetchAPI("/newspage");

@@ -2,11 +2,11 @@ import Markdown from "markdown-to-jsx";
 import Moment from "react-moment";
 import { useEffect, useState } from "react";
 import Script from "next/script";
-import { fetchAPI } from "../lib/api";
-import Layout from "../components/Layout";
+import { fetchAPI } from "../../lib/api";
+import Layout from "../../components/Layout";
 import Image from "next/image";
-import Seo from "../components/seo";
-import styles from "../styles/BlogPost.module.css";
+import Seo from "../../components/seo";
+import styles from "../../styles/BlogPost.module.css";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaTelegram, FaTwitter } from "react-icons/fa";
 
@@ -39,7 +39,7 @@ const Article = ({ article }) => {
                   height={50}
                   width={50}
                   className={styles.img2}
-                  alt=""
+                  alt={article.author.name}
                 />
               </div>
               <div className={styles.cardProfileInfo}>
@@ -54,7 +54,12 @@ const Article = ({ article }) => {
 
         <div className={styles.cover__wrapper}>
           <div className={styles.cover__image}>
-            <Image src={article.image.url} height={800} width={1000} alt="" />
+            <Image
+              src={article.image.url}
+              height={800}
+              width={1000}
+              alt={article.image.name}
+            />
           </div>
         </div>
         <main className={styles.container__main}>
@@ -144,6 +149,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const articles = await fetchAPI(`/articles?slug=${params.slug}`);
   //   const categories = await fetchAPI("/categories");
+
+  if (!articles) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: { article: JSON.parse(JSON.stringify(articles[0])) },
