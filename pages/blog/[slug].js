@@ -1,6 +1,5 @@
 import Markdown from "markdown-to-jsx";
 import Moment from "react-moment";
-import { useEffect, useState } from "react";
 import { fetchAPI } from "../../lib/api";
 import Layout from "../../components/Layout";
 import Image from "next/image";

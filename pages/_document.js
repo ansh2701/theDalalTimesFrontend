@@ -1,44 +1,33 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
-  }
-
+export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-          ></script>
-          <script></script>
-
+          />
           <script
             dangerouslySetInnerHTML={{
               __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-            
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
             });
           `,
             }}
           />
-          {/* <!-- Start emojicom.io widget --> */}
           <script
             dangerouslySetInnerHTML={{
-              __html: `
-              window.emojicom_widget = { campaign: '${process.env.NEXT_PUBLIC_EMOJI}' };
-          `,
+              __html: ` window.emojicom_widget = { campaign: '${process.env.NEXT_PUBLIC_EMOJI}' }`,
             }}
           />
           <script src="https://cdn.emojicom.io/embed/widget.js" async></script>
-          {/* <!-- End emojicom.io widget --> */}
         </Head>
         <body>
           <Main />
@@ -48,5 +37,3 @@ class MyDocument extends Document {
     );
   }
 }
-
-export default MyDocument;
