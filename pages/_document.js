@@ -22,12 +22,6 @@ export default class MyDocument extends Document {
           `,
             }}
           />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: ` window.emojicom_widget = { campaign: '${process.env.NEXT_PUBLIC_EMOJI}' }`,
-            }}
-          />
-          <script src="https://cdn.emojicom.io/embed/widget.js" async></script>
         </Head>
         <body>
           <Main />

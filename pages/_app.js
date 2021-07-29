@@ -18,6 +18,12 @@ const MyApp = ({ Component, pageProps }) => {
           name="google-site-verification"
           content="TLRuLpNzr_kXf2PreLdiwtiuV07H7KsFK-CyU6FzuGw"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: ` window.emojicom_widget = { campaign: 'Ue0a6qKOrpr93PvGC248' }`,
+          }}
+        />
+        <script src="https://cdn.emojicom.io/embed/widget.js" async></script>
       </Head>
 
       <GlobalContext.Provider value={global}>
