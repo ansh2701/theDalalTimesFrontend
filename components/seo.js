@@ -1,9 +1,15 @@
 import Head from "next/head";
-import { useContext } from "react";
-import { GlobalContext } from "../pages/_app";
 
 const Seo = ({ seo }) => {
-  const { defaultSeo, siteName } = useContext(GlobalContext);
+  const defaultSeo = {
+    metaDescription:
+      "India's Largest Investor Community |\nA Community wherein members interact and grow their wealth.",
+    metaTitle: "The Dalal Times",
+    shareImage: {
+      url: "https://res.cloudinary.com/mrxox/image/upload/v1627476000/Whats_App_Image_2021_07_27_at_17_51_21_0907e4c81e.png",
+    },
+  };
+  const siteName = "The Dalal Times";
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,
