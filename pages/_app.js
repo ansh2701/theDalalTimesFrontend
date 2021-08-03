@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import App from "next/app";
 import Head from "next/head";
+import NextNprogress from "nextjs-progressbar";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 
@@ -27,6 +28,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
 
       <GlobalContext.Provider value={global}>
+        <NextNprogress />
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </>
