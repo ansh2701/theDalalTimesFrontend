@@ -62,24 +62,11 @@ function Header() {
             <li className={styles.navitem}>
               <Link href="/tweet">
                 <a className={styles.navlinks} onClick={closeMobileMenu}>
-                  Tweets
+                  Tweets/Reddit
                 </a>
               </Link>
             </li>
-
-            {/* <li className={styles.navitem}>
-              <Link href="/signup">
-                <a className={styles.navlinksmobile} onClick={closeMobileMenu}>
-                  Contact Us
-                </a>
-              </Link>
-            </li> */}
           </ul>
-          {/* {button && (
-            <Link href="/">
-              <a className="btn one">Contact Us</a>
-            </Link>
-          )} */}
         </div>
       </nav>
     </>
