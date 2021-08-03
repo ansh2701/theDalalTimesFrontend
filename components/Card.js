@@ -4,17 +4,20 @@ import styles from "../styles/CssCard.module.css";
 
 const Card = ({ article, blogClass }) => {
   let currentDate = new Date(article.updated_at);
+  console.log(article.author.picture);
   return (
     <Link href={`/blog/${article.slug}`}>
       <a>
         <div className={styles[blogClass]}>
           <div className={styles.card__cover}>
             <div className={styles.image}>
-              <Image
-                src={article.image.url}
-                layout="fill"
-                alt={article.image.name}
-              />
+              {article.image && (
+                <Image
+                  src={article.image.url}
+                  layout="fill"
+                  alt={article.image.name}
+                />
+              )}
             </div>
           </div>
           <div className={styles.card__content}>
@@ -23,13 +26,15 @@ const Card = ({ article, blogClass }) => {
             {article.author && (
               <div className={styles.cardProfile}>
                 <div className={styles.img2}>
-                  <Image
-                    src={article.author.picture.formats.small.url}
-                    height={50}
-                    width={50}
-                    className={styles.img2}
-                    alt=""
-                  />
+                  {article.author.picture && (
+                    <Image
+                      src={article.author.picture.url}
+                      height={50}
+                      width={50}
+                      className={styles.img2}
+                      alt=""
+                    />
+                  )}
                 </div>
                 <div className={styles.cardProfileInfo}>
                   <h3 className={styles.profileName}>{article.author.name}</h3>

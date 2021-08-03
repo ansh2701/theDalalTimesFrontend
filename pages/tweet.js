@@ -19,7 +19,7 @@ const tweet = ({ tweet, homepage }) => {
           flex-wrap: wrap;
           flex-direction: column;
           align-content: center;
-          background-color: #191b1f;
+          background-color: #fff;
           /* min-height: 90vw; */
         }
       `}</style>
