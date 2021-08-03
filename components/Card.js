@@ -32,7 +32,7 @@ const Card = ({ article, blogClass }) => {
                       height={50}
                       width={50}
                       className={styles.img2}
-                      alt=""
+                      alt={article.author.name}
                     />
                   )}
                 </div>

@@ -24,23 +24,27 @@ const Article = ({ article }) => {
           <div className={styles.header__content}>
             <h1>{article.title}</h1>
             <p>{article.description}</p>
-            <div className={styles.cardProfile}>
-              <div className={styles.img2}>
-                <Image
-                  src={article.author.picture.formats.small.url}
-                  height={50}
-                  width={50}
-                  className={styles.img2}
-                  alt={article.author.name}
-                />
+            {article.author && (
+              <div className={styles.cardProfile}>
+                <div className={styles.img2}>
+                  {article.author.picture && (
+                    <Image
+                      src={article.author.picture.url}
+                      height={50}
+                      width={50}
+                      className={styles.img2}
+                      alt={article.author.name}
+                    />
+                  )}
+                </div>
+                <div className={styles.cardProfileInfo}>
+                  <h3 className={styles.profileName}>{article.author.name}</h3>
+                  <p className={styles.profileDate}>
+                    <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                  </p>
+                </div>
               </div>
-              <div className={styles.cardProfileInfo}>
-                <h3 className={styles.profileName}>{article.author.name}</h3>
-                <p className={styles.profileDate}>
-                  <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-                </p>
-              </div>
-            </div>
+            )}
           </div>
         </header>
 
