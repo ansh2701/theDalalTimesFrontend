@@ -103,6 +103,25 @@
   width: 100%;
 }
 
+.container__middle table,
+.container__middle th,
+.container__middle td {
+  border: 0.5px solid black;
+}
+
+/* .container__middle td {
+  padding-left: 25px;
+} */
+
+.container__middle table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.container__middle thead {
+  background-color: #f3f3f3;
+}
+
 .shareContainer {
   display: flex;
   justify-content: center;
