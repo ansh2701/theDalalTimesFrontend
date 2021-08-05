@@ -17,7 +17,7 @@ const news = ({ posts, homepage }) => {
 
   return (
     <Layout>
-      <Seo seo={homepage.Seo} />
+      <Seo seo={homepage.Seo} slug={"news"} />
       <div className={styles.container}>
         <div className={styles.postFeed}>
           {posts.articles.map((post, index) => box(post, index))}

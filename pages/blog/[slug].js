@@ -18,7 +18,7 @@ const Article = ({ article }) => {
 
   return (
     <Layout>
-      <Seo seo={seo} />
+      <Seo seo={seo} slug={article.slug} />
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.header__content}>

@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-const Seo = ({ seo }) => {
+const Seo = ({ seo, slug }) => {
   const defaultSeo = {
     metaDescription:
       "India's Largest Investor Community |\nA Community wherein members interact and grow their wealth.",
@@ -10,6 +10,8 @@ const Seo = ({ seo }) => {
     },
   };
   const siteName = "The Dalal Times";
+  const siteUrl = `https://thedalaltimes.com/${slug}`;
+
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,
@@ -31,6 +33,7 @@ const Seo = ({ seo }) => {
           <meta name="twitter:title" content={fullSeo.metaTitle} />
         </>
       )}
+      <meta property="og:url" content={siteUrl} key="og:url" />
       {fullSeo.metaDescription && (
         <>
           <meta name="description" content={fullSeo.metaDescription} />
@@ -47,6 +50,7 @@ const Seo = ({ seo }) => {
       )}
       {fullSeo.article && <meta property="og:type" content="article" />}
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href={siteUrl} />
     </Head>
   );
 };

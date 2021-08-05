@@ -6,7 +6,7 @@ import Layout from "../components/Layout";
 const tweet = ({ tweet, homepage }) => {
   return (
     <Layout>
-      <Seo seo={homepage.seo} />
+      <Seo seo={homepage.seo} slug={"tweet"} />
       <div className="container">
         {tweet.map((twe, index) => (
           <div key={index}>{parse(twe.tweet)}</div>
@@ -32,7 +32,7 @@ export default tweet;
 export async function getServerSideProps() {
   // Run API calls in parallel
   const [tweet, homepage] = await Promise.all([
-    fetchAPI("/tweets?_start=0&_limit=9"),
+    fetchAPI("/tweets?_start=0&_limit=20_sort=updated_at:DESC"),
     fetchAPI("/twitter"),
   ]);
   if (!tweet) {
