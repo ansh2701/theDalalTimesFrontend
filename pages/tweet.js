@@ -32,7 +32,7 @@ export default tweet;
 export async function getServerSideProps() {
   // Run API calls in parallel
   const [tweet, homepage] = await Promise.all([
-    fetchAPI("/tweets?_start=0&_limit=20_sort=updated_at:DESC"),
+    fetchAPI("/tweets?_start=0&_limit=20"),
     fetchAPI("/twitter"),
   ]);
   if (!tweet) {
