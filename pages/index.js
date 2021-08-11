@@ -38,7 +38,7 @@ const blog = ({ data, homepage }) => {
 
 export default blog;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Run API calls in parallel
   const data = await fetchAPI(
     "/articles?_start=0&_limit=20&_sort=updated_at:DESC"
@@ -52,5 +52,6 @@ export async function getServerSideProps() {
   }
   return {
     props: { data, homepage },
+    revalidate: 60 * 10,
   };
 }

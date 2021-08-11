@@ -131,12 +131,13 @@ const Article = ({ article }) => {
 };
 
 export async function getStaticPaths() {
-  // const articles = await fetchAPI("/articles");
+  const posts = await fetchAPI("/articles");
 
-  return {
-    paths: [], //indicates that no page needs be created at build time
-    fallback: "blocking", //indicates the type of fallback
-  };
+  const paths = posts.map((post) => ({
+    params: { id: post.id },
+  }));
+
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
@@ -151,7 +152,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { article: JSON.parse(JSON.stringify(articles[0])) },
-    revalidate: 1,
+    revalidate: 60 * 10,
   };
 }
 

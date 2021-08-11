@@ -29,7 +29,7 @@ const tweet = ({ tweet, homepage }) => {
 
 export default tweet;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Run API calls in parallel
   const [tweet, homepage] = await Promise.all([
     fetchAPI("/tweets?_start=0&_limit=20"),
@@ -42,5 +42,6 @@ export async function getServerSideProps() {
   }
   return {
     props: { tweet, homepage },
+    revalidate: 60 * 10,
   };
 }
