@@ -134,7 +134,7 @@ export async function getStaticPaths() {
   const posts = await fetchAPI("/articles");
 
   const paths = posts.map((post) => ({
-    params: { id: post.id },
+    params: { slug: post.slug },
   }));
 
   return { paths, fallback: false };
