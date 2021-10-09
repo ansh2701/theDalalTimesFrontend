@@ -31,7 +31,7 @@ function Header() {
           <Link href="/">
             <a className={styles.logo} onClick={closeMobileMenu}>
               <Image
-                src="https://res.cloudinary.com/mrxox/image/upload/v1627475987/logo_784685d0ba.png"
+                src="https://res.cloudinary.com/mrxox/image/upload/v1627476000/Whats_App_Image_2021_07_27_at_17_51_21_0907e4c81e.png"
                 height={60}
                 width={60}
                 alt="Dalal Times"
